@@ -710,29 +710,31 @@ section {
 .furniture .container .furniture__item .bottom .buy .buy__button {
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 .furniture .container .all {
   margin-top: 60px;
   text-align: center;
+  cursor: pointer;
 }
-.furniture .container .all a {
+.furniture .container .all p {
   color: #e58411;
   font-family: "Gilroy", sans-serif;
   font-weight: 600;
   line-height: 33px;
 }
 @media screen and (max-width: 767px) {
-  .furniture .container .all a {
+  .furniture .container .all p {
     font-size: calc(12px + 13.6 * ((100vw - 320px) / 1440));
   }
 }
 @media screen and (min-width: 767px) {
-  .furniture .container .all a {
+  .furniture .container .all p {
     font-size: calc(12px + 8 * (100vw / 1440));
   }
 }
 @media screen and (min-width: 1441px) {
-  .furniture .container .all a {
+  .furniture .container .all p {
     font-size: calc(18px + 8 * (100vw / 1440));
   }
 }

@@ -478,6 +478,8 @@ section {
           .buy__button {
             border: none;
             background: transparent;
+            cursor: pointer;
+            z-index: 99;
           }
         }
       }
@@ -486,8 +488,8 @@ section {
     .all {
       margin-top: 60px;
       text-align: center;
-
-      a {
+      cursor: pointer;
+      p {
         color: #e58411;
         font-family: "Gilroy", sans-serif;
         font-weight: 600;

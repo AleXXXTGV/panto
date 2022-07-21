@@ -1,3 +1,62 @@
+var swiper = () => {
+  new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 42,
+  slidesPerGroup: 1,
+  loop: false,
+  loopFillGroupWithBlank: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    1: {
+      slidesPerView: 1
+    },
+
+    850: {
+      slidesPerView: 2
+
+    },
+
+    870: {
+      slidesPerView: 3
+
+    },
+
+    1400: {
+      slidesPerView: 4
+    }
+  }
+});
+}
+swiper()
+var swiper2 = new Swiper(".mySwiper2", {
+  slidesPerView: 3,
+  spaceBetween: 42,
+  slidesPerGroup: 1,
+  loop: false,
+  loopFillGroupWithBlank: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    1: {
+      slidesPerView: 1
+    },
+
+    850: {
+      slidesPerView: 2
+
+    },
+
+    1300: {
+      slidesPerView: 3
+    }
+  }
+});
+
 const anchors = document.querySelectorAll('a.scroll-to')
 
 for (let anchor of anchors) {
@@ -33,6 +92,8 @@ let typesOfFurniture = [{
 
 let furniture = [
   {
+  id: Math.random().toString().slice(2, 10),
+  id: Math.random().toString().slice(2, 10),
   img: './img/chair1.png',
   type: 1,
   title: 'Sakarias Armchair',
@@ -40,6 +101,7 @@ let furniture = [
   price: 392,
 }, 
   {
+  id: Math.random().toString().slice(2, 10),
   img: './img/chair2.png',
   type: 1,
   title: 'Baltsar Chair',
@@ -47,6 +109,7 @@ let furniture = [
   price: 299,
 }, 
   {
+  id: Math.random().toString().slice(2, 10),
   img: './img/chair3.png',
   type: 1,
   title: 'Anjay Chair',
@@ -54,6 +117,7 @@ let furniture = [
   price: 519,
 }, 
   {
+  id: Math.random().toString().slice(2, 10),
   img: './img/chair4.png',
   type: 1,
   title: 'Nyantuy Chair',
@@ -61,32 +125,40 @@ let furniture = [
   price: 921,
 },
   {
+  id: Math.random().toString().slice(2, 10),
   img: './img/bed1.png',
   type: 2,
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 717,
 },
-  {img: './img/bed2.png',
+  {
+  id: Math.random().toString().slice(2, 10),
+  img: './img/bed2.png',
   type: 2,
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 325,
 },
-  {img: './img/bed3.png',
+  {
+  id: Math.random().toString().slice(2, 10),
+  img: './img/bed3.png',
   type: 2,
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 360,
 },
-  {img: './img/bed4.png',
+  {
+  id: Math.random().toString().slice(2, 10),
+  img: './img/bed4.png',
   type: 2,
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 550,
 },
 ]
-console.log(furniture);
+
+let cart = []
 
 let typesWrapper = document.querySelector(".types")
 let furnitureWrapper = document.querySelector(".furnitureWrapper")
@@ -122,7 +194,7 @@ let furnitureCreate = (arr) => {
 
       <div class="buy">
         <h3 class="price"><sup>$</sup>${item.price}</h3>
-        <button class="buy__button">
+        <button class="buy__button" value="${item.id}">
           <img src="./img/buyButton.svg" alt="buy__button" />
         </button>
       </div>
@@ -152,10 +224,16 @@ let typesCreate = (arr) => {
       
       let typeId = et.getAttribute('id')
       let filteredArr = furniture.filter(item => item.type == typeId)
-      console.log(filteredArr);
       furnitureCreate(filteredArr)
+      swiper()
     }
   }
+}
+
+let viewAllBtn = document.querySelector("#all")
+viewAllBtn.onclick = () => {
+  furnitureCreate(furniture)
+  swiper()
 }
 
 window.onload = () => {
@@ -163,5 +241,11 @@ window.onload = () => {
   furnitureCreate(furniture)
 }
 
+let buyBtn = document.querySelectorAll(".buy__button")
 
-// let newFunc = func(2)
+for(let btn of buyBtn) {
+  console.log(btn);
+  
+  btn.onclick = () => {
+  }
+}
