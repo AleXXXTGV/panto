@@ -1,0 +1,7 @@
+1. stars function //Done
+2. furnitureCreate function //Done
+3. item.type function //Done
+4. Write array
+5. Cart Button 
+6. Cart
+7. 
