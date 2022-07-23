@@ -99,6 +99,7 @@ let furniture = [
   title: 'Sakarias Armchair',
   stars: Math.ceil(Math.random()*5),
   price: 392,
+  inCartValue: 0,
 }, 
   {
   id: Math.random().toString().slice(2, 10),
@@ -107,6 +108,7 @@ let furniture = [
   title: 'Baltsar Chair',
   stars: Math.ceil(Math.random()*5),
   price: 299,
+  inCartValue: 0,
 }, 
   {
   id: Math.random().toString().slice(2, 10),
@@ -115,6 +117,7 @@ let furniture = [
   title: 'Anjay Chair',
   stars: Math.ceil(Math.random()*5),
   price: 519,
+  inCartValue: 0,
 }, 
   {
   id: Math.random().toString().slice(2, 10),
@@ -123,6 +126,7 @@ let furniture = [
   title: 'Nyantuy Chair',
   stars: Math.ceil(Math.random()*5),
   price: 921,
+  inCartValue: 0,
 },
   {
   id: Math.random().toString().slice(2, 10),
@@ -131,6 +135,7 @@ let furniture = [
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 717,
+  inCartValue: 0,
 },
   {
   id: Math.random().toString().slice(2, 10),
@@ -139,6 +144,7 @@ let furniture = [
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 325,
+  inCartValue: 0,
 },
   {
   id: Math.random().toString().slice(2, 10),
@@ -147,6 +153,7 @@ let furniture = [
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 360,
+  inCartValue: 0,
 },
   {
   id: Math.random().toString().slice(2, 10),
@@ -155,10 +162,12 @@ let furniture = [
   title: 'Sakarias Bed',
   stars: Math.ceil(Math.random()*5),
   price: 550,
+  inCartValue: 0,
 },
 ]
 
 let cart = []
+let cartAmount = document.querySelector(".cart__count")
 
 let typesWrapper = document.querySelector(".types")
 let furnitureWrapper = document.querySelector(".furnitureWrapper")
@@ -239,13 +248,16 @@ viewAllBtn.onclick = () => {
 window.onload = () => {
   typesCreate(typesOfFurniture)
   furnitureCreate(furniture)
-}
-
-let buyBtn = document.querySelectorAll(".buy__button")
-
-for(let btn of buyBtn) {
-  console.log(btn);
+  let buyBtn = document.querySelectorAll('.buy__button')
+  for(let btn of buyBtn) {
   
-  btn.onclick = () => {
+    btn.onclick = () => {
+      let addedItem = furniture.filter(item => item.id == btn.getAttribute('value'))
+      cart.push(addedItem)
+      cartAmount.innerHTML = cart.length
+      console.log(cart);
+    }
   }
 }
+
+

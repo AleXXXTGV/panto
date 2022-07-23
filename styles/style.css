@@ -97,6 +97,7 @@
   position: absolute;
   right: -30%;
   top: 0;
+  font-family: "Gilroy", sans-serif;
 }
 @media (min-width: 1441px) {
   .cart__count {
@@ -711,6 +712,7 @@ section {
   border: none;
   background: transparent;
   cursor: pointer;
+  z-index: 99;
 }
 .furniture .container .all {
   margin-top: 60px;
