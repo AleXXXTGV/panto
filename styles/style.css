@@ -21,11 +21,14 @@
 .header {
   width: 100%;
   max-width: 1920px;
-  position: absolute;
+  position: fixed;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
   margin: 0 auto;
   z-index: 100;
   color: white;
   padding-top: 40px;
+  padding-bottom: 40px;
 }
 .header a {
   color: white;

@@ -249,12 +249,24 @@ window.onload = () => {
   typesCreate(typesOfFurniture)
   furnitureCreate(furniture)
   let buyBtn = document.querySelectorAll('.buy__button')
+  let inCartValues = 0;
   for(let btn of buyBtn) {
   
     btn.onclick = () => {
       let addedItem = furniture.filter(item => item.id == btn.getAttribute('value'))
-      cart.push(addedItem)
-      cartAmount.innerHTML = cart.length
+      console.log(addedItem);
+      if (addedItem[0].inCartValue == 0) {
+        cart.push(addedItem[0])
+        addedItem[0].inCartValue++
+        // cartAmount.innerHTML = cart.length
+      } else {
+        addedItem[0].inCartValue++
+        for(let cartItem of cart) {
+          inCartValues += cartItem.inCartValue
+          console.log(inCartValues);
+        }
+      }
+      cartAmount.innerHTML = cart.length + inCartValues
       console.log(cart);
     }
   }
