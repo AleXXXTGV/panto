@@ -22,8 +22,7 @@
   width: 100%;
   max-width: 1920px;
   position: fixed;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
+  background-color: black;
   margin: 0 auto;
   z-index: 100;
   color: white;
