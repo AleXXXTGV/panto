@@ -213,7 +213,7 @@ let furnitureCreate = (arr) => {
   }
   furnitureWrapper.innerHTML = items;
 }
-
+let filteredArr = []
 let typesCreate = (arr) => {
   typesWrapper.innerHTML = ''
   let items = ''
@@ -232,7 +232,7 @@ let typesCreate = (arr) => {
       et.classList.add("active")
       
       let typeId = et.getAttribute('id')
-      let filteredArr = furniture.filter(item => item.type == typeId)
+      filteredArr = furniture.filter(item => item.type == typeId)
       furnitureCreate(filteredArr)
       swiper()
     }
@@ -275,3 +275,24 @@ window.onload = () => {
 }
 
 
+let searchForm = document.querySelector(".search")
+let searchInput = document.querySelector(".search__input")
+
+searchForm.addEventListener('submit', function (e) {
+  e.preventDefault()
+  if (filteredArr.length == 0) {
+    let searchedFurniture = furniture.filter(item => item.title.toLowerCase().includes(searchInput.value.toLowerCase()))
+    furnitureCreate(searchedFurniture)
+    
+  } else {
+    let searchedFurniture = filteredArr.filter(item => item.title.toLowerCase().includes(searchInput.value.toLowerCase()))
+    furnitureCreate(searchedFurniture)
+  }
+  swiper()
+  const blockID = searchForm.getAttribute('href')
+
+  document.querySelector(blockID).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  })
+})
